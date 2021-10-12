@@ -1,5 +1,6 @@
 import React from 'react'
 import Banner from '../components/Banner'
+import NavBar from '../components/NavBar'
 import Row from '../components/Row'
 import requests from '../services/request'
 import "./Main.css"
@@ -8,6 +9,7 @@ import "./Main.css"
 function Main() {
   return (
     <div className="main__container">
+      <NavBar/>
       <Banner />
 
       
