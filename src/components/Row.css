@@ -1,3 +1,8 @@
+.row{
+  margin-left: 2em;
+  color: white;
+}
+
 .row__images-container{
 display: flex;
 overflow-y: hidden;
@@ -9,14 +14,24 @@ padding: 20px;
 .row__images{
   width: 100%;
   object-fit: contain;
-  max-height: 15em;
+  max-height: 8em;
   transition: transform 450ms;
   margin-right: 1em;
 
 }
 
+
+
 .row__images:hover{
   transform: scale(1.08);
 
+}
+
+.row__images-Large{
+  max-height: 15em;
+}
+
+.row__images-Large:hover{
+  transform: scale(1.09);
 }
 

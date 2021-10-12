@@ -4,10 +4,9 @@ import axios from '../services/axios'
 import './Row.css'
 
 
-function Row({sectionTitle, fetchUrl}) {
+function Row({sectionTitle, fetchUrl, isLargeRow}) {
   const [movies, setMovies] = useState([])
   const baseImgUrl = "https://image.tmdb.org/t/p/original/"
-  console.table(movies);
 
   useEffect(()=>{
     let getData = async () =>{
@@ -27,8 +26,8 @@ function Row({sectionTitle, fetchUrl}) {
           return (
             <img 
             key={movie.id}
-            className="row__images" 
-            src={`${baseImgUrl}${movie.poster_path}`} 
+            className={`row__images ${isLargeRow && "row__images-Large"}` }
+            src={`${baseImgUrl}${isLargeRow ? movie.poster_path : movie.backdrop_path}`} 
             alt={movie.name}/>
           )
         })}
