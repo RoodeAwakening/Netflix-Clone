@@ -35,3 +35,8 @@ padding: 20px;
   transform: scale(1.09);
 }
 
+.movie__trailers{
+  display: flex;
+  justify-content: space-around;
+}
+
