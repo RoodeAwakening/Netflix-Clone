@@ -1,8 +1,8 @@
 import React from 'react'
-import Banner from '../components/Banner'
-import NavBar from '../components/NavBar'
-import Row from '../components/Row'
-import requests from '../services/request'
+import Banner from '../Banner'
+import NavBar from '../NavBar'
+import Row from '../Row'
+import requests from '../../services/request'
 import "./Main.css"
 
 

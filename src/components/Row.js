@@ -3,9 +3,10 @@ import YouTube from 'react-youtube'
 import axios from '../services/axios'
 import movieTrailer from 'movie-trailer'
 import './Row.css'
-import SectionTitles from '../atoms/SectionTitles'
-import MovieBlockSmall from '../atoms/MovieBlockSmall'
-import MovieBlockLarge from '../atoms/MovieBlockLarge'
+import SectionTitles from './atoms/SectionTitles'
+import MovieBlockSmall from './atoms/MovieBlockSmall'
+import MovieBlockLarge from './atoms/MovieBlockLarge'
+import MovieBlock from './molecules/MovieBlock'
 
 
 function Row({sectionTitle, fetchUrl, isLargeRow}) {
@@ -59,7 +60,14 @@ function Row({sectionTitle, fetchUrl, isLargeRow}) {
           return (
     
             <>
-            {isLargeRow ? <MovieBlockLarge
+            <MovieBlock
+            isLargeRow={isLargeRow}
+            movieId={movie.id}
+            movieImgSrc={movie.poster_path}
+            movieName={movie.name}
+            onClickFunction={()=> {handleClick(movie)}}
+            />
+            {/* {isLargeRow ? <MovieBlockLarge
             movieId={movie.id}
             movieImgSrc={movie.poster_path}
             movieName={movie.name}
@@ -70,7 +78,7 @@ function Row({sectionTitle, fetchUrl, isLargeRow}) {
             movieImgSrc={movie.poster_path}
             movieName={movie.name}
             onClickFunction={()=> {handleClick(movie)}}
-            />}
+            />} */}
             </>
             
 
