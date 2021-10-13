@@ -30,4 +30,10 @@
 
 }
 
+/* trailers */
+.movie__trailers{
+  display: flex;
+  justify-content: space-around;
+}
+
 
