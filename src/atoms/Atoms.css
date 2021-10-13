@@ -1,0 +1,24 @@
+/* MovieBlockSmall */
+.row__images{
+  width: 100%;
+  object-fit: contain;
+  max-height: 8em;
+  transition: transform 450ms;
+  margin-right: 1em;
+
+}
+
+.row__images:hover{
+  transform: scale(1.08);
+
+}
+
+/* MovieBlockLarge */
+
+.row__images-Large{
+  max-height: 15em;
+}
+
+.row__images-Large:hover{
+  transform: scale(1.09);
+}

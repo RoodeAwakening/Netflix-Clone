@@ -1,9 +1,11 @@
 import React, {useState, useEffect} from 'react'
 import YouTube from 'react-youtube'
-import Titles from '../atoms/Titles'
 import axios from '../services/axios'
 import movieTrailer from 'movie-trailer'
 import './Row.css'
+import SectionTitles from '../atoms/SectionTitles'
+import MovieBlockSmall from '../atoms/MovieBlockSmall'
+import MovieBlockLarge from '../atoms/MovieBlockLarge'
 
 
 function Row({sectionTitle, fetchUrl, isLargeRow}) {
@@ -49,18 +51,41 @@ function Row({sectionTitle, fetchUrl, isLargeRow}) {
 
   return (
     <div className="row">
-      <h2>{sectionTitle}</h2>
+      <SectionTitles title={sectionTitle}/>
 
       <div className="row__images-container">
         {movies.map((movie)=>{
           console.log("movie",movie);
           return (
-            <img 
-            onClick={()=>handleClick(movie)}
-            key={movie.id}
-            className={`row__images ${isLargeRow && "row__images-Large"}` }
-            src={`${baseImgUrl}${isLargeRow ? movie.poster_path : movie.backdrop_path}`} 
-            alt={movie.name}/>
+            // <img 
+            // onClick={()=>handleClick(movie)}
+            // key={movie.id}
+            // className={`row__images ${isLargeRow && "row__images-Large"}` }
+            // // src={`${baseImgUrl}${movie.poster_path}`} 
+            // src={`${baseImgUrl}${isLargeRow ? movie.poster_path : movie.backdrop_path}`} 
+            // alt={movie.name}/>
+            <>
+            {isLargeRow ? <MovieBlockLarge
+            movieId={movie.id}
+            movieImgSrc={movie.poster_path}
+            movieName={movie.name}
+            onClickFunction={()=> {handleClick(movie)}}
+            /> : 
+            <MovieBlockSmall
+            movieId={movie.id}
+            movieImgSrc={movie.poster_path}
+            movieName={movie.name}
+            onClickFunction={()=> {handleClick(movie)}}
+            />}
+            </>
+            
+
+            // <MovieBlockSmall 
+            // movieId={movie.id}
+            // movieImgSrc={movie.poster_path}
+            // movieName={movie.name}
+            // onClickFunction={()=> {handleClick(movie)}}
+            // />
           )
         })}
       </div>
