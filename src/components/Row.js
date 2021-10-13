@@ -57,13 +57,7 @@ function Row({sectionTitle, fetchUrl, isLargeRow}) {
         {movies.map((movie)=>{
           console.log("movie",movie);
           return (
-            // <img 
-            // onClick={()=>handleClick(movie)}
-            // key={movie.id}
-            // className={`row__images ${isLargeRow && "row__images-Large"}` }
-            // // src={`${baseImgUrl}${movie.poster_path}`} 
-            // src={`${baseImgUrl}${isLargeRow ? movie.poster_path : movie.backdrop_path}`} 
-            // alt={movie.name}/>
+    
             <>
             {isLargeRow ? <MovieBlockLarge
             movieId={movie.id}
