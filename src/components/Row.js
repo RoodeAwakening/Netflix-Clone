@@ -4,9 +4,9 @@ import axios from '../services/axios'
 import movieTrailer from 'movie-trailer'
 import './Row.css'
 import SectionTitles from './atoms/SectionTitles'
-import MovieBlockSmall from './atoms/MovieBlockSmall'
-import MovieBlockLarge from './atoms/MovieBlockLarge'
+
 import MovieBlock from './molecules/MovieBlock'
+import MovieRow from './organisms/MovieRow'
 
 
 function Row({sectionTitle, fetchUrl, isLargeRow}) {
@@ -51,8 +51,14 @@ function Row({sectionTitle, fetchUrl, isLargeRow}) {
   }
 
   return (
-    <div className="row">
-      <SectionTitles title={sectionTitle}/>
+    
+    <>
+      <MovieRow
+      isLargeRow={isLargeRow}
+      movies={movies}
+      />
+      
+      {/* <SectionTitles title={sectionTitle}/>
 
       <div className="row__images-container">
         {movies.map((movie)=>{
@@ -60,6 +66,7 @@ function Row({sectionTitle, fetchUrl, isLargeRow}) {
           return (
     
             <>
+            
             <MovieBlock
             isLargeRow={isLargeRow}
             movieId={movie.id}
@@ -67,36 +74,21 @@ function Row({sectionTitle, fetchUrl, isLargeRow}) {
             movieName={movie.name}
             onClickFunction={()=> {handleClick(movie)}}
             />
-            {/* {isLargeRow ? <MovieBlockLarge
-            movieId={movie.id}
-            movieImgSrc={movie.poster_path}
-            movieName={movie.name}
-            onClickFunction={()=> {handleClick(movie)}}
-            /> : 
-            <MovieBlockSmall
-            movieId={movie.id}
-            movieImgSrc={movie.poster_path}
-            movieName={movie.name}
-            onClickFunction={()=> {handleClick(movie)}}
-            />} */}
+        
             </>
             
 
-            // <MovieBlockSmall 
-            // movieId={movie.id}
-            // movieImgSrc={movie.poster_path}
-            // movieName={movie.name}
-            // onClickFunction={()=> {handleClick(movie)}}
-            // />
+       
           )
         })}
-      </div>
+      </div> */}
       <div className="movie__trailers">
 
 {trailerUrl && <YouTube videoId={trailerUrl} opts={opts} />}
       </div>
-    </div>
+    </>
   )
+  
 }
 
 export default Row
