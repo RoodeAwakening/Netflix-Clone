@@ -50,7 +50,7 @@ function MovieRow({ fetchUrl, isLargeRow, sectionTitle }) {
       <SectionTitles title={sectionTitle} />
 
       <div className="row__images-container">
-        {movies.map((movie) => {
+        {movies.map((movie, index) => {
           return (
             <>
               {isLargeRow ? (
@@ -61,6 +61,7 @@ function MovieRow({ fetchUrl, isLargeRow, sectionTitle }) {
                   onClickFunction={() => {
                     handleClick(movie);
                   }}
+                  index={index}
                 />
               ) : (
                 <MovieBlockSmall
@@ -70,6 +71,7 @@ function MovieRow({ fetchUrl, isLargeRow, sectionTitle }) {
                   onClickFunction={() => {
                     handleClick(movie);
                   }}
+                  index={index}
                 />
               )}
             </>
@@ -77,7 +79,7 @@ function MovieRow({ fetchUrl, isLargeRow, sectionTitle }) {
         })}
       </div>
 
-      <div className="movie__trailers">
+      <div className="movie__trailers" data-testid='movie-trailer'>
         {trailerUrl && <YouTube videoId={trailerUrl} opts={opts} />}
       </div>
     </div>

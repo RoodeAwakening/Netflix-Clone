@@ -8,6 +8,7 @@ function MovieBlock({
   movieName,
   onClickFunction,
   isLargeRow,
+  index
 }) {
   const blockData = {
     isLargeRow,
@@ -15,6 +16,7 @@ function MovieBlock({
     movieImgSrc,
     movieName,
     onClickFunction,
+    index
   };
 
   return (
